@@ -54,7 +54,7 @@ source("CIarrFcn.R") # Used to calculate confidence intervals, given weighted co
       (1/n) * ( prop_est * (1 - prop_est) )
     )
     
-    deff_var_kish <- var_kish/var_prop_srs
+    deff_var_kish <- var_kish/var_prop_srs # Not quite right since var_kish is variance of a total
     n_eff_var_kish <- n / deff_var_kish
     
   # Step 3: Calculate intervals
