@@ -10,7 +10,9 @@ surveyci <- function(formula,design,deff) {
     return()
   }
   p <- svymean(formula,design,na.rm=TRUE,deff=deff)
-  n_eff <- dim(design$variables[all.vars(formula)])[1]/deff(p)
+  
+  n <- sum(c(!is.na(design$variables[all.vars(formula)])))
+  n_eff <- n/deff(p)
   
   CIarrFcn(p*n_eff,n_eff,0.05)
 }
